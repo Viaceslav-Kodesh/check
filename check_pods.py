@@ -29,7 +29,7 @@ while(count < 10):
         os.system('openstack coe cluster delete vks-test')
         sys.exit(0)
     else:
-        time.sleep(10)
+        time.sleep(1)
         count += 1
 
 if len(array) != 0 and count == 10:
