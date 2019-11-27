@@ -13,11 +13,11 @@ jobs:
           sudo apt-get -y install python-dev python-pip
           sudo pip install --upgrade pip
           sudo pip install python-openstackclient
-          export OS_PASSWORD= ${{secrets.PASSWORD}}
           export OS_AUTH_URL= ${{secrets.OS_AUTH_URL}}
           export OS_PROJECT_NAME= ${{secrets.OS_PROJECT_NAME}}
-          export OS_USERNAME= ${{secrets.OS_USERNAME}}
           export OS_USER_DOMAIN_NAME= ${{secrets.OS_USER_DOMAIN_NAME}}
+          export OS_USERNAME= ${{secrets.OS_USERNAME}}
+          export OS_PASSWORD= ${{secrets.PASSWORD}}
           openstack network list
           
           
