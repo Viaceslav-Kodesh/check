@@ -14,7 +14,8 @@ jobs:
           sudo pip install --upgrade pip
           sudo pip install python-openstackclient
           . vks-test-openrc.sh
-          openstack network list
           export OS_PASSWORD= ${{secrets.PASSWORD}}
+          openstack network list
+          
           
       - run: echo One last message
