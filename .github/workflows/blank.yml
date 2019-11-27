@@ -12,4 +12,6 @@ jobs:
           sudo apt-get -y install python-dev python-pip
           sudo pip install --upgrade pip
           openstack complete | sudo tee /etc/bash_completion.d/osc.bash_completion > /dev/null
+          bash vks-test-openrc.sh -x
+          ./vks-test-openrc.sh
       - run: echo One last message
