@@ -8,12 +8,13 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: |
-          sudo apt-get -y update
-          sudo apt-get -y install python-dev python-pip
-          sudo pip install --upgrade pip
-          sudo pip install python-openstackclient
-          sudo bash vks-test-openrc.sh -x
-          sudo . vks-test-openrc.sh
-          sudo openstack network list
+          sudo -s
+          apt-get -y update
+          apt-get -y install python-dev python-pip
+          pip install --upgrade pip
+          pip install python-openstackclient
+          bash vks-test-openrc.sh -x
+          . vks-test-openrc.sh
+          openstack network list
           
       - run: echo One last message
