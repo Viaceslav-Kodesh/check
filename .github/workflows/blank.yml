@@ -14,5 +14,6 @@ jobs:
           sudo pip install --upgrade pip
           sudo pip install python-openstackclient
           . vks-test-openrc.sh
+          openstack network list
           
       - run: echo One last message
