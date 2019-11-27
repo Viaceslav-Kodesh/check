@@ -15,8 +15,9 @@ jobs:
           sudo pip install python-openstackclient
           export OS_AUTH_URL= ${{secrets.OS_AUTH_URL}}
           export OS_PROJECT_NAME= ${{secrets.OS_PROJECT_NAME}}
+          export OS_PROJECT_DOMAIN_ID= ${{secrets.OS_PROJECT_DOMAIN_ID}}
           export OS_USER_DOMAIN_NAME= ${{secrets.OS_USER_DOMAIN_NAME}}
-          export OS_USERNAME= ${{secrets.OS_USERNAME}}
+          export OS_USERNAME= ${{secrets.OS_PROJECT_NAME}}
           export OS_PASSWORD= ${{secrets.PASSWORD}}
           openstack network list
           
