@@ -22,4 +22,5 @@ while(count < 10):
 
 
 if p['status'] == "CREATE_FAILED" and count == 10:
+                                                 os.system('openstack coe cluster delete vks-test')
                                                  sys.exit(1)
