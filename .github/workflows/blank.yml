@@ -1,22 +1,16 @@
-name: CI
+name: Check Cluster
 
 on: [push]
 
 jobs:
-  build:
-
+  runMultipleCommands:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: install CLI
-      run: |
-      sudo apt-get -y update
-      sudo apt-get -y install python-dev python-pip
-      sudo pip install --upgrade pip
-      which openstack
-      nano ~/.keystonerc
-      source ~/.keystonerc
-      openstack complete | sudo tee /etc/bash_completion.d/osc.bash_completion > /dev/null
-    - name: Run sh file with creds
-      run: bash vks-test-openrc.sh
+      - uses: actions/checkout@v1
+      - run: |
+          sudo apt-get -y update
+          sudo apt-get -y install python-dev python-pip
+          sudo pip install --upgrade pip
+          which openstack
+          openstack complete | sudo tee /etc/bash_completion.d/osc.bash_completion > /dev/null
+      - run: echo One last message
