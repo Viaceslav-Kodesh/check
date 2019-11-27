@@ -15,6 +15,5 @@ jobs:
           sudo pip install python-openstackclient
           bash vks-test-openrc.sh -x
           . vks-test-openrc.sh
-          openstack network list
           
       - run: echo One last message
