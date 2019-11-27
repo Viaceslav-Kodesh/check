@@ -29,6 +29,6 @@ jobs:
           export KUBECONFIG=./config
           eval $(openstack coe cluster config vks-test)
           kubectl get po --all-namespaces
-          pip install kubernetes
+          sudo pip install kubernetes
           python check_pods.py
       - run: echo One last message
