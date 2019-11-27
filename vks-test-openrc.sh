@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# To use an OpenStack cloud you need to authenticate against the Identity
+# To use an OpenStack cloud you need to authenticate against the Identit
 # service named keystone, which returns a **Token** and **Service Catalog**.
 # The catalog contains the endpoints for all services the user/tenant has
 # access to - such as Compute, Image Service, Identity, Object Storage, Block
