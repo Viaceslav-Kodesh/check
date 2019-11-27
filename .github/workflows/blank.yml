@@ -19,7 +19,6 @@ jobs:
           export OS_USERNAME=${{secrets.OS_PROJECT_NAME}}
           export OS_PASSWORD=${{secrets.PASSWORD}}
           openstack network list
-          openstack coe cluster create vks-test --cluster-template k8s_1.14.1 --master-count 1 --node-count 1 --master-flavor VC-2 --flavor VC-2 --keypair mykey --labels cloud_provider_tag=v1.14.0,coredns_tag=1.5.2,kube_tag=v1.14.1,heat_container_agent_tag=stein-stable
-          
+                
           
       - run: echo One last message
