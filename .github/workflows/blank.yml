@@ -19,8 +19,7 @@ jobs:
           export OS_USERNAME=${{secrets.OS_PROJECT_NAME}}
           export OS_PASSWORD=${{secrets.PASSWORD}}
           openstack network list
-          openstack coe cluster create vks-test \
-            --cluster-template k8s_1.14.1 \
+          openstack coe cluster create vks-test --cluster-template k8s_1.14.1 \
             --master-count 1 \
             --node-count 1 \
             --master-flavor VC-2 \
