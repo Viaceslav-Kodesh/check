@@ -23,5 +23,7 @@ jobs:
         sudo pip install --upgrade pip
         sudo pip install python-openstackclient
         sudo pip install python-magnumclient
-
+    - name: Test step
+      run: |
+        echo $OS_AUTH_URL
 
