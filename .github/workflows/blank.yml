@@ -7,20 +7,20 @@ jobs:
   runMultipleCommands:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Install CLI
-      - run: |
-          sudo apt-get -y update
-          sudo apt-get -y install python-dev python-pip
-          sudo pip install --upgrade pip
-          sudo pip install python-openstackclient
-          sudo pip install python-magnumclient
-      - name: secret variable
-        run: |
-          export OS_AUTH_URL=${{secrets.OS_AUTH_URL}}
-          export OS_PROJECT_NAME=${{secrets.OS_PROJECT_NAME}}
-          export OS_PROJECT_DOMAIN_ID=${{secrets.OS_PROJECT_DOMAIN_ID}}
-          export OS_USER_DOMAIN_NAME=${{secrets.OS_USER_DOMAIN_NAME}}
-          export OS_USERNAME=${{secrets.OS_PROJECT_NAME}}
-          export OS_PASSWORD=${{secrets.PASSWORD}}
+    - uses: actions/checkout@v1
+    - name: Install CLI
+    - run: |
+       sudo apt-get -y update
+       sudo apt-get -y install python-dev python-pip
+       sudo pip install --upgrade pip
+       sudo pip install python-openstackclient
+       sudo pip install python-magnumclient
+    - name: secret variable
+    - run: |
+       export OS_AUTH_URL=${{secrets.OS_AUTH_URL}}
+       export OS_PROJECT_NAME=${{secrets.OS_PROJECT_NAME}}
+       export OS_PROJECT_DOMAIN_ID=${{secrets.OS_PROJECT_DOMAIN_ID}}
+       export OS_USER_DOMAIN_NAME=${{secrets.OS_USER_DOMAIN_NAME}}
+       export OS_USERNAME=${{secrets.OS_PROJECT_NAME}}
+       export OS_PASSWORD=${{secrets.PASSWORD}}
 
