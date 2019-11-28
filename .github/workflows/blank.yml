@@ -15,7 +15,6 @@ jobs:
           sudo pip install --upgrade pip
           sudo pip install python-openstackclient
           sudo pip install python-magnumclient
-      - uses: actions/checkout@v1
       - name: secret variable
         run: |
           export OS_AUTH_URL=${{secrets.OS_AUTH_URL}}
