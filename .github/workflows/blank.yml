@@ -17,11 +17,11 @@ jobs:
         OS_USERNAME: ${{secrets.OS_PROJECT_NAME}}
         OS_PASSWORD: ${{secrets.PASSWORD}}
         KUBECONFIG: ./config
-    - run: |
-       sudo apt-get -y update
-       sudo apt-get -y install python-dev python-pip
-       sudo pip install --upgrade pip
-       sudo pip install python-openstackclient
-       sudo pip install python-magnumclient
+      run: |
+        sudo apt-get -y update
+        sudo apt-get -y install python-dev python-pip
+        sudo pip install --upgrade pip
+        sudo pip install python-openstackclient
+        sudo pip install python-magnumclient
 
 
