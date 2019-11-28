@@ -2,7 +2,8 @@ name: Check Cluster
 
 on:
   schedule:
-      - cron:  '0 * * * *'
+    - cron:  '1 * * * *'
+jobs:
   runMultipleCommands:
     runs-on: ubuntu-latest
     steps:
