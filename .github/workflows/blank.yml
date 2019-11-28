@@ -14,31 +14,31 @@ jobs:
           sudo pip install --upgrade pip
           sudo pip install python-openstackclient
           sudo pip install python-magnumclient
-      - run: |
-      - name: secret variable
+        - run: |
+        - name: secret variable
           export OS_AUTH_URL=${{secrets.OS_AUTH_URL}}
           export OS_PROJECT_NAME=${{secrets.OS_PROJECT_NAME}}
           export OS_PROJECT_DOMAIN_ID=${{secrets.OS_PROJECT_DOMAIN_ID}}
           export OS_USER_DOMAIN_NAME=${{secrets.OS_USER_DOMAIN_NAME}}
           export OS_USERNAME=${{secrets.OS_PROJECT_NAME}}
           export OS_PASSWORD=${{secrets.PASSWORD}}
-      - run: |
-      - name: Cluster create & checking status
+        - run: |
+        - name: Cluster create & checking status
           openstack coe cluster create vks-test --cluster-template k8s_1.14.1 --master-count 1 --node-count 1 --master-flavor VC-2 --flavor VC-2 --keypair mykey --labels cloud_provider_tag=v1.14.0,coredns_tag=1.5.2,kube_tag=v1.14.1,heat_container_agent_tag=stein-stable
           python check_cluster_creation.py
-      - run: |
-      - name: Add apt key
+        - run: |
+        - name: Add apt key
           sudo apt-get update && sudo apt-get install -y apt-transport-https
           curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
           echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
-      - run: |
-      - name: Configure access to multiple cluster
+        - run: |
+        - name: Configure access to multiple cluster
           sudo apt-get update
           sudo apt-get install -y kubectl
           export KUBECONFIG=./config
           eval $(openstack coe cluster config vks-test)
-      - run: |
-      - name: Install kubernetes & check pods
+        - run: |
+        - name: Install kubernetes & check pods
           kubectl get po --all-namespaces
           sudo pip install kubernetes
           python check_pods.py
