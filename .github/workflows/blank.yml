@@ -1,7 +1,8 @@
 name: Check Cluster
 
-on: [push]
-
+on:
+  schedule:
+    - cron:  '60'
 jobs:
   runMultipleCommands:
     runs-on: ubuntu-latest
