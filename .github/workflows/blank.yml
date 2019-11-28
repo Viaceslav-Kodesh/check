@@ -1,9 +1,9 @@
 name: Check Cluster
 
-on: [push]
+on:
+  schedule:
+    - cron:  '0 * * * *'
 
-jobs:
-  runMultipleCommands:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
