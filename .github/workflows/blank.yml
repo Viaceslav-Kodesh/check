@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Install Openstack CLI
+    - name: Install Openstack CLI and python k8s library
       env:
         KUBECONFIG: ./config
       run: |
@@ -17,6 +17,7 @@ jobs:
         sudo pip install --upgrade pip
         sudo pip install python-openstackclient
         sudo pip install python-magnumclient
+        sudo pip install kubernetes
     - name: Creating K8s cluster
       env:
         OS_AUTH_URL: ${{secrets.OS_AUTH_URL}}
@@ -26,6 +27,15 @@ jobs:
         OS_USERNAME: ${{secrets.OS_PROJECT_NAME}}
         OS_PASSWORD: ${{secrets.PASSWORD}}
       run: |
-        echo openstack coe cluster create vks-test --cluster-template k8s_1.14.1 --master-count 1 --node-count 1 --master-flavor VC-2 --flavor VC-2 --keypair mykey --labels cloud_provider_tag=v1.14.0,coredns_tag=1.5.2,kube_tag=v1.14.1,heat_container_agent_tag=stein-stable
-        echo python check_cluster_creation.py
-        kubectl
+        openstack coe cluster create vks-test --cluster-template k8s_1.14.1 --master-count 1 --node-count 1 --master-flavor VC-2 --flavor VC-2 --keypair mykey --labels cloud_provider_tag=v1.14.0,coredns_tag=1.5.2,kube_tag=v1.14.1,heat_container_agent_tag=stein-stable
+        python check_cluster_creation.py
+    - name: Get cluster config
+      env:
+        KUBECONFIG: ./config
+      run: |
+        eval $(openstack coe cluster config $OS_USERNAME)
+    - name: Check cluster health
+      run: |
+        python check_pods.py
+    
+     
