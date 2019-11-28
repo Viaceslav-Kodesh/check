@@ -7,7 +7,6 @@ jobs:
   runMultipleCommands:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
     - name: Install CLI
     - run: |
        sudo apt-get -y update
