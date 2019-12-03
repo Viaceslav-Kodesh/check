@@ -1,7 +1,7 @@
 name: Check Cluster
 
 on: [push]
-  #schedule:
+  ##schedule:
     #- cron:  '0 * * * *'
 jobs:
   runMultipleCommands:
