@@ -3,7 +3,6 @@ name: Check Cluster
 on:
   schedule:
     - cron:  '0 * * * *'
-
 jobs:
   runMultipleCommands:
     runs-on: ubuntu-latest
