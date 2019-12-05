@@ -3,7 +3,7 @@ import time
 import sys
 from kubernetes.client import CoreV1Api
 import os
-# Configs can be set in Configuration class directly or using helper utility
+# Configs can be set in Configuration class directly or using helper utility 1
 
 config.load_kube_config()
 v1 = client.CoreV1Api()
