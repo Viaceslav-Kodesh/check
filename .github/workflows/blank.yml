@@ -15,6 +15,7 @@ jobs:
         sudo pip install --upgrade pip
         sudo pip install python-openstackclient
         sudo pip install python-magnumclient
+        sudo pip install kubernetes
         
     - name: Creating K8s cluster
       env:
