@@ -2,7 +2,7 @@ import os
 import json
 import time
 import sys
-
+# test
 count = 0
 while(count < 10):
         os.system('openstack coe cluster show $OS_CLUSTER_NAME -c status --format json >result.json')
