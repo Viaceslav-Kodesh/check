@@ -33,7 +33,7 @@ jobs:
       env:
         KUBECONFIG: ./config
       run: |
-        openstack coe cluster config $OS_CLUSTER_NAME
+        openstack coe cluster config vks-test
     - name: Check cluster health
       run: |
         python check_pods.py
