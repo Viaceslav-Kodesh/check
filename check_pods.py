@@ -3,7 +3,7 @@ import time
 import sys
 from kubernetes.client import CoreV1Api
 import os
-# Configs can be set in Configuration class directly or using helper utility 1
+# Configs can be set in Configuration class directly or using helper utility
 
 
 if os.path.isfile('./config'):
