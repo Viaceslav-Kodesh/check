@@ -27,7 +27,7 @@ jobs:
         OS_PASSWORD: ${{secrets.PASSWORD}}
         OS_CLUSTER_NAME: ${{secrets.OS_CLUSTER_NAME}}
       run: |
-        openstack coe cluster create $OS_CLUSTER_NAME --cluster-template k8s_1.14.1_at27_stable --master-count 1 --node-count 1 --master-flavor VC-2 --flavor VC-2 --keypair mykey
+        openstack coe cluster create $OS_CLUSTER_NAME --cluster-template k8s_1.15.6_at29_stable --master-count 1 --node-count 1 --master-flavor VC-2 --flavor VC-2 --keypair mykey
         python check_cluster_creation.py
     - name: Get cluster config
       env:
