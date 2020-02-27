@@ -3,6 +3,17 @@ import json
 import time
 import sys
 # test
+
+def telegram_bot_sendtext(bot_message):
+
+    bot_token = os.environ['OS_TELEGRAM_TOKEN']
+    bot_chatID = os.environ['OS_TELEGRAM_CHAT_ID']
+    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
+
+    response = requests.get(send_text)
+
+    return response.json()
+
 count = 0
 while(count < 10):
         os.system('openstack coe cluster show $OS_CLUSTER_NAME -c status --format json >result.json')
@@ -26,5 +37,6 @@ if data['status'] == "CREATE_FAILED" and count == 10:
     with open('err.json') as json_file:
         err = json.load(json_file)
     print err
+    telegram_bot_sendtext(err)
     os.system('openstack coe cluster delete $OS_CLUSTER_NAME')
     sys.exit(1)
