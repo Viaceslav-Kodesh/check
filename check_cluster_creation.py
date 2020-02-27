@@ -37,6 +37,6 @@ if data['status'] == "CREATE_FAILED" and count == 10:
     with open('err.json') as json_file:
         err = json.load(json_file)
     print err
-    telegram_bot_sendtext(err)
+    telegram_bot_sendtext(str(err))
     os.system('openstack coe cluster delete $OS_CLUSTER_NAME')
     sys.exit(1)
