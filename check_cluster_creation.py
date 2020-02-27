@@ -14,6 +14,8 @@ def telegram_bot_sendtext(bot_message):
 
     return response.json()
 
+telegram_bot_sendtext("Process of k8s creation has been started")
+
 count = 0
 while(count < 10):
         os.system('openstack coe cluster show $OS_CLUSTER_NAME -c status --format json >result.json')
