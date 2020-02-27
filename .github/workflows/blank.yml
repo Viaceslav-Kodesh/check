@@ -14,6 +14,7 @@ jobs:
         sudo apt-get -y install python-dev python-pip
         sudo pip install --upgrade pip
         sudo pip install python-openstackclient
+        sudo pip install requests
         sudo pip install python-magnumclient
         sudo pip install kubernetes
         
@@ -26,6 +27,8 @@ jobs:
         OS_USERNAME: ${{secrets.OS_PROJECT_NAME}}
         OS_PASSWORD: ${{secrets.PASSWORD}}
         OS_CLUSTER_NAME: ${{secrets.OS_CLUSTER_NAME}}
+        OS_TELEGRAM_TOKEN : ${{secrets.OS_TELEGRAM_TOKEN}}
+        OS_TELEGRAM_CHAT_ID: ${{secrets.OS_TELEGRAM_CHAT_ID}}
       run: |
         openstack coe cluster create $OS_CLUSTER_NAME --cluster-template k8s_1.15.6_at29_stable --master-count 1 --node-count 1 --master-flavor VC-2 --flavor VC-2 --keypair mykey
         python check_cluster_creation.py
