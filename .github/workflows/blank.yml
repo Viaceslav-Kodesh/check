@@ -1,5 +1,5 @@
 name: Check Cluster
-#test1111
+#test1111 $OS_CLUSTER_NAME
 on: [push]
   #schedule:
     #- cron:  '0 * * * *'
@@ -30,7 +30,7 @@ jobs:
         OS_TELEGRAM_TOKEN : ${{secrets.OS_TELEGRAM_TOKEN}}
         OS_TELEGRAM_CHAT_ID: ${{secrets.OS_TELEGRAM_CHAT_ID}}
       run: |
-        openstack coe cluster create $OS_CLUSTER_NAME --cluster-template k8s_1.15.6_at29_stable --master-count 1 --node-count 1 --master-flavor VC-2 --flavor VC-2 --keypair mykey
+        openstack coe cluster create meetup --cluster-template k8s_1.15.6_at29_stable --master-count 1 --node-count 1 --master-flavor VC-2 --flavor VC-2 --keypair mykey
         python check_cluster_creation.py
     - name: Get cluster config
       env:
