@@ -3,7 +3,7 @@ import json
 import time
 import sys
 import requests
-# test1111
+# test1111 https://docs.openstack.org/python-magnumclient/pike/usage.html
 
 def telegram_bot_sendtext(bot_message):
 
